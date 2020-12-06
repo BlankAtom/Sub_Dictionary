@@ -1,0 +1,4 @@
+src/*/*.vcxproj*
+src/*/Debug/*
+src/*/Release/*
+src/*/x64/*
