@@ -2,7 +2,15 @@
 #include "Rocael.h"
 
 int Rocael::grayWorld(cv::Mat& src, cv::Mat& dst) {
-    if (src.empty() || src.type() != CV_8UC3)
+
+    cv::Mat mat(src);
+
+    cv::cvtColor(mat, mat, cv::COLOR_RGB2GRAY);
+    cv::cvtColor(mat, mat, cv::COLOR_GRAY2RGB);
+    cv::circle(mat, cv::Point(200, 200), 50, cv::Scalar(255, 0, 0));
+    dst = mat;
+    
+    /*if (src.empty() || src.type() != CV_8UC3)
         return -1;
     if (dst.empty() || src.type() != dst.type() || src.size() != dst.size())
     {
@@ -56,6 +64,30 @@ int Rocael::grayWorld(cv::Mat& src, cv::Mat& dst) {
             pdst[j] = static_cast<uchar>(itemp > 255 ? 255 : itemp);
             j++;
         }
-    }
+    }*/
+    return 0;
+}
+
+int Rocael::testFunc(cv::Mat& src, cv::Mat& dst)
+{
+    cv::Mat mat(src);
+    cv::circle(mat, cv::Point(400, 200), 50, cv::Scalar(255, 0, 0));
+    dst = mat;
+    return 0;
+}
+
+int Rocael::testFunc2(cv::Mat& src, cv::Mat& dst)
+{
+    cv::Mat mat(src);
+    cv::circle(mat, cv::Point(200, 400), 50, cv::Scalar(255, 255, 0));
+    dst = mat;
+    return 0;
+}
+
+int Rocael::testFunc3(cv::Mat& src, cv::Mat& dst)
+{
+    cv::Mat mat(src);
+    cv::circle(mat, cv::Point(400, 400), 50, cv::Scalar(255, 0, 255));
+    dst = mat;
     return 0;
 }
